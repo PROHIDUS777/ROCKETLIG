@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rocket Arena 3v3</title>
+<title>Rocket League 3v3</title>
 <style>
   html,body{margin:0;height:100%;overflow:hidden;background:#05070d;font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#fff;user-select:none;-webkit-user-select:none}
   #c{display:block;width:100%;height:100%}
@@ -63,6 +63,45 @@
   @media(max-width:900px){#menu{align-items:flex-end;justify-content:center;padding:0 0 3vh}}
   #pauseOverlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.45);font-size:44px;font-weight:900;font-style:italic;letter-spacing:8px}
   #err{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:none;max-width:80vw;padding:20px;background:#3a0c0c;border:1px solid #f55;border-radius:8px;font:13px monospace;white-space:pre-wrap;z-index:10}
+
+  /* ===== estilo Rocket League ===== */
+  .panel{border-radius:0}
+  #scoreboard{height:62px;border:0;backdrop-filter:none;background:rgba(5,10,24,.88);clip-path:polygon(3% 0,97% 0,100% 100%,0 100%)}
+  #scoreboard .team{padding:0 30px;font-size:17px}
+  #scoreboard .team.blue{background:linear-gradient(90deg,#1f6fff,#1544b0)}
+  #scoreboard .team.orange{background:linear-gradient(270deg,#ff7a1a,#d4540a)}
+  #menu{background:linear-gradient(90deg,rgba(3,8,26,.94),rgba(8,30,86,.6) 40%,rgba(0,0,0,0) 72%)}
+  #menu .card{background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;padding:0 0 0 2vw;width:min(520px,92vw)}
+  #menu h1{font-size:68px;line-height:.9;letter-spacing:1px;background:none;-webkit-text-fill-color:#fff;color:#fff;transform:skewX(-10deg);text-shadow:4px 4px 0 #ff7a1a,-3px -3px 0 #1f6fff}
+  #menu h2{margin:12px 0 18px;color:#8fb6ff;opacity:1}
+  .tabs{flex-direction:column;gap:6px;margin:0 0 18px;padding:0;border:0;border-radius:0;background:none}
+  #menu .tab{flex:none;text-align:left;border-radius:0;font-size:26px;font-weight:900;font-style:italic;letter-spacing:2px;padding:12px 30px;color:#fff;border-left:7px solid #1f6fff;background:linear-gradient(90deg,rgba(24,66,180,.85),rgba(24,66,180,.12));transform:skewX(-12deg);transition:transform .12s,background .12s}
+  #menu .tab:hover{transform:skewX(-12deg) translateX(8px);background:linear-gradient(90deg,rgba(40,100,230,.95),rgba(40,100,230,.25))}
+  #menu .tab.on{background:#fff;color:#0a1a46;border-left-color:#ff7a1a;transform:skewX(-12deg) translateX(16px)}
+  .pane.on{background:rgba(6,16,46,.78);border-left:4px solid #ff7a1a;padding:14px 18px 6px;margin-bottom:16px}
+  #menu #playBtn{border-radius:0;transform:skewX(-12deg);font-size:28px;padding:16px 40px;color:#1a0b00;background:linear-gradient(90deg,#ff7a1a,#ffb02e);box-shadow:0 0 0 3px rgba(255,255,255,.18),0 10px 30px rgba(255,122,26,.5)}
+  #menu #playBtn:hover{transform:skewX(-12deg) scale(1.03)}
+  #menu #result{text-shadow:3px 3px 0 #000}
+
+/* ===== marcador Rocket League (v2) ===== */
+#scoreboard{top:10px;height:64px;width:min(440px,92vw);background:none;border:0;box-shadow:none;clip-path:none;overflow:visible;backdrop-filter:none;filter:drop-shadow(0 6px 14px rgba(0,0,0,.55))}
+#scoreboard .team{position:relative;flex:0 0 96px;justify-content:center;padding:0;gap:0;font-style:normal}
+#scoreboard .team>span:first-child{display:none}
+#scoreboard .team.blue{background:linear-gradient(180deg,#4b8bff 0%,#2358f0 45%,#1a3fc2 100%);border-radius:12px 0 0 12px;box-shadow:-6px 0 28px rgba(40,110,255,.75),inset 0 2px 0 rgba(255,255,255,.35),inset 0 -10px 18px rgba(0,20,90,.45)}
+#scoreboard .team.orange{background:linear-gradient(180deg,#ff9a4a 0%,#f0701f 45%,#c9510d 100%);border-radius:0 12px 12px 0;box-shadow:6px 0 28px rgba(255,120,30,.75),inset 0 2px 0 rgba(255,255,255,.35),inset 0 -10px 18px rgba(110,35,0,.45)}
+#scoreboard .team::after{content:"";position:absolute;top:2px;bottom:2px;width:3px;background:#fff;box-shadow:0 0 8px #fff,0 0 16px rgba(255,255,255,.7)}
+#scoreboard .team.blue::after{right:0}
+#scoreboard .team.orange::after{left:0}
+#scoreboard .score{font-family:Eurostile,Orbitron,"Bank Gothic","Segoe UI",sans-serif;font-size:48px;font-weight:300;font-style:italic;letter-spacing:1px;min-width:0;text-shadow:0 0 10px rgba(255,255,255,.45),0 2px 4px rgba(0,0,0,.5)}
+#scoreboard .mid{flex:1;min-width:0;padding:0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.06);position:relative;
+ background:radial-gradient(ellipse at 50% 0,rgba(70,90,160,.45),transparent 70%),linear-gradient(90deg,rgba(24,50,130,.6) 0%,rgba(4,6,16,.96) 24%,rgba(4,6,16,.96) 76%,rgba(130,55,10,.6) 100%)}
+#timer{font-family:Eurostile,Orbitron,"Bank Gothic","Segoe UI",sans-serif;font-size:40px;font-weight:300;letter-spacing:3px;text-shadow:0 0 12px rgba(190,210,255,.65)}
+#scoreboard::after{content:"";position:absolute;left:50%;bottom:-10px;width:96px;height:10px;transform:translateX(-50%);background:linear-gradient(#10152a,#070a14);clip-path:polygon(0 0,100% 0,88% 100%,12% 100%)}
+#otBadge{position:absolute;bottom:-34px;left:0;right:0;text-align:center;text-shadow:0 0 8px #000}
+@keyframes scorePop{0%{transform:scale(1)}30%{transform:scale(1.7);text-shadow:0 0 24px #fff,0 0 48px #fff}100%{transform:scale(1)}}
+@keyframes teamFlash{0%,100%{filter:none}30%{filter:brightness(1.8) saturate(1.2)}}
+#scoreboard .score.pop{animation:scorePop .9s cubic-bezier(.2,.8,.2,1)}
+#scoreboard .team.flash{animation:teamFlash .9s ease-out}
 </style>
 </head>
 <body>
@@ -90,9 +129,9 @@
 <div id="menu">
   <div class="card panel">
     <div id="result"></div>
-    <h1>ROCKET ARENA</h1>
+    <h1>ROCKET<br>LEAGUE</h1>
     <h2>3 V 3 · PARTIDA DE 5 MINUTOS</h2>
-    <div class="tabs"><button class="tab on" data-tab="play">JUGAR</button><button class="tab" data-tab="garage">GARAJE</button><button class="tab" data-tab="controls">CONTROLES</button></div>
+    <div class="tabs"><button class="tab on" data-tab="play">EXHIBICIÓN</button><button class="tab" data-tab="garage">GARAJE</button><button class="tab" data-tab="controls">CONTROLES</button></div>
     <div class="pane on" id="pane-play"><p>Conduces el coche azul con dos compañeros IA contra tres rivales IA. Marca más goles que el naranja antes de que acabe el reloj. ¿Empate? Prórroga: el siguiente gol gana.</p></div>
     <div class="pane" id="pane-garage">
       <div class="lbl">CARROCERÍA</div><div class="swrow" id="swBody"></div>
@@ -131,11 +170,11 @@ const A={hw:4096,hl:5120,H:2044,Rc:1152,Rf:520,gw:893,gh:643,gd:880};
 const G=650;
 const BALL={r:93,m:30,e:0.6,mu:0.35,k:0.4,maxV:6000,maxW:6,I:0};
 BALL.I=BALL.k*BALL.m*BALL.r*BALL.r;
-const CAR={m:180,hx:42,hy:18,hz:59,maxSpeed:2300,driveMax:1410,supersonic:2200,boostAcc:991.667,boostUse:26,
+const CAR={m:150,hx:42,hy:18,hz:59,maxSpeed:2300,driveMax:1560,supersonic:2200,boostAcc:1110,boostUse:26,
   jumpV:292,jumpHoldAcc:1458,jumpHoldTime:0.2,dodgeV:500,flipTime:0.65,flipRate:9.67,dodgeWindow:1.25,maxAngV:5.5,
-  T:[12.46,9.11,38.34],D:[2.8,1.89,4.47],
-  wheelMaxLen:62,wheelL0:34,wheelMin:8,k:3800,c:720,maxSpring:260000,stick:325,
-  Ix:228300,Iy:314700,Iz:125280};
+  T:[13.4,9.8,41.2],D:[2.8,1.89,4.47],
+  wheelMaxLen:62,wheelL0:34,wheelMin:8,k:3170,c:600,maxSpring:216700,stick:325,
+  Ix:190300,Iy:262300,Iz:104400};
 const WHEELS=[{x:-40,y:-18,z:46},{x:40,y:-18,z:46},{x:-40,y:-18,z:-44},{x:40,y:-18,z:-44}];
 const CORNERS=[];for(const sx of[-1,1])for(const sy of[-1,1])for(const sz of[-1,1])CORNERS.push({x:sx*CAR.hx,y:sy*CAR.hy,z:sz*CAR.hz});
 const TEAM_COL=[{main:0x1f6fff,acc:0x22e0ff,css:'#3d8bff',name:'BLUE'},{main:0xff7a1a,acc:0xffd21f,css:'#ff7a1a',name:'ORANGE'}];
@@ -275,7 +314,7 @@ class Particles{
     for(const a of[this.aPos,this.aSize,this.aCol,this.aAlpha])a.setUsage(THREE.DynamicDrawUsage);
     g.setAttribute('position',this.aPos);g.setAttribute('aSize',this.aSize);g.setAttribute('aColor',this.aCol);g.setAttribute('aAlpha',this.aAlpha);
     this.mat=new THREE.ShaderMaterial({uniforms:{uScale:{value:600}},transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,
-      vertexShader:`attribute float aSize;attribute vec3 aColor;attribute float aAlpha;varying vec3 vC;varying float vA;
+      vertexShader:`uniform float uScale;attribute float aSize;attribute vec3 aColor;attribute float aAlpha;varying vec3 vC;varying float vA;
         void main(){vC=aColor;vA=aAlpha;vec4 mv=modelViewMatrix*vec4(position,1.0);gl_PointSize=aSize*(uScale/max(-mv.z,1.0));gl_Position=projectionMatrix*mv;}`,
       fragmentShader:`varying vec3 vC;varying float vA;void main(){float d=length(gl_PointCoord-0.5)*2.0;float a=smoothstep(1.0,0.15,d)*vA;if(a<0.003)discard;gl_FragColor=vec4(vC*a,a);}`});
     this.points=new THREE.Points(g,this.mat);this.points.frustumCulled=false;
@@ -430,9 +469,9 @@ function buildArenaGeometry(){
 // =====================================================================
 function newInput(){return{throttle:0,steer:0,pitch:0,yaw:0,roll:0,jump:false,boost:false,drift:false};}
 function resetInput(i){i.throttle=0;i.steer=0;i.pitch=0;i.yaw=0;i.roll=0;i.jump=false;i.boost=false;i.drift=false;return i;}
-function throttleAccel(v){if(v>=1410)return 0;if(v<=1400)return lerp(1600,160,v/1400);return lerp(160,0,(v-1400)/10);}
+function throttleAccel(v){const M=CAR.driveMax;if(v>=M)return 0;if(v<=M-10)return lerp(1750,160,v/(M-10));return lerp(160,0,(v-(M-10))/10);}
 const CURV=[[0,0.0069],[500,0.00398],[1000,0.00235],[1500,0.001375],[1750,0.0011],[2300,0.00088]];
-function curvature(v){if(v<=0)return CURV[0][1];for(let i=1;i<CURV.length;i++){if(v<=CURV[i][0]){const a=CURV[i-1],b=CURV[i];return lerp(a[1],b[1],(v-a[0])/(b[0]-a[0]));}}return CURV[CURV.length-1][1];}
+function curvature(v){return 1.07*curvature0(v);}function curvature0(v){if(v<=0)return CURV[0][1];for(let i=1;i<CURV.length;i++){if(v<=CURV[i][0]){const a=CURV[i-1],b=CURV[i];return lerp(a[1],b[1],(v-a[0])/(b[0]-a[0]));}}return CURV[CURV.length-1][1];}
 
 const cs={acc:V3(),navg:V3(),negUp:V3(),att:V3(),hit:V3(),n:V3(),r:V3(),vAtt:V3(),tmp:V3(),tmp2:V3(),F:V3(),ax:V3(),wPerp:V3(),corner:V3(),vP:V3(),vt:V3(),q:new THREE.Quaternion(),flipW:V3()};
 
@@ -497,7 +536,7 @@ class Car{
         const vf=vel.dot(fwd),vr=vel.dot(right),avf=Math.abs(vf);const th=inp.throttle;let af=0;
         if(th!==0){if(avf>25&&th*vf<0)af=-sgn(vf)*3500;else af=th*throttleAccel(avf);}
         else if(avf>0.5)af=-sgn(vf)*Math.min(525,avf/dt);
-        if(avf>1410&&!(inp.boost&&this.boost>0))af+=-sgn(vf)*525;
+        if(avf>CAR.driveMax&&!(inp.boost&&this.boost>0))af+=-sgn(vf)*525;
         acc.addScaledVector(fwd,af);
         const grip=inp.drift?1700:10000;acc.addScaledVector(right,clamp(-vr/dt,-grip,grip));
         const tgt=-inp.steer*curvature(avf)*vf*(inp.drift?1.45:1); // steer +1 = clockwise (right) turn
@@ -706,7 +745,7 @@ function travelTimeFor(car,x,y,z){
   const dx=x-car.pos.x,dy=y-car.pos.y,dz=z-car.pos.z;let dist=Math.sqrt(dx*dx+dy*dy+dz*dz)-90;if(dist<0)dist=0;
   const lx=dx*car.right.x+dy*car.right.y+dz*car.right.z,lz=dx*car.fwd.x+dy*car.fwd.y+dz*car.fwd.z;
   const ang=Math.abs(Math.atan2(lx,lz));
-  const v0=Math.max(car.vel.dot(car.fwd),0),acc=car.boost>5?1050:900,vmax=car.boost>5?2200:1400;
+  const v0=Math.max(car.vel.dot(car.fwd),0),acc=car.boost>5?1150:1000,vmax=car.boost>5?2200:CAR.driveMax;
   let t;const t1=Math.max(0,(vmax-v0)/acc),d1=v0*t1+0.5*acc*t1*t1;
   if(d1>=dist)t=(-v0+Math.sqrt(v0*v0+2*acc*dist))/acc;else t=t1+(dist-d1)/vmax;
   return t+ang*0.42+(ang>2.2?0.5:0)+(car.grounded?0:0.3);
@@ -1002,26 +1041,57 @@ class Game{
     this.dbgMarks=[];for(let i=0;i<6;i++){const mk=new THREE.Mesh(new THREE.SphereGeometry(28,10,8),new THREE.MeshBasicMaterial({color:0xff00ff,wireframe:true}));mk.visible=false;sc.add(mk);this.dbgMarks.push(mk);}
   }
   buildCarMesh(team,isPlayer){
-    const col=TEAM_COL[team];const grp=new THREE.Group();
-    const shape=new THREE.Shape();const pts=[[-58,-14],[58,-14],[61,-6],[58,4],[44,6],[30,8],[18,18],[-22,19],[-40,15],[-56,12],[-61,0]];
-    shape.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)shape.lineTo(pts[i][0],pts[i][1]);shape.closePath();
-    const bodyGeo=new THREE.ExtrudeGeometry(shape,{depth:80,bevelEnabled:true,bevelThickness:2,bevelSize:2,bevelSegments:2});bodyGeo.rotateY(-Math.PI/2);bodyGeo.translate(40,0,0);bodyGeo.computeVertexNormals();
-    const bodyMat=new THREE.MeshStandardMaterial({color:col.main,roughness:0.32,metalness:0.55});
-    const body=new THREE.Mesh(bodyGeo,bodyMat);body.castShadow=true;body.receiveShadow=true;grp.add(body);
-    const glass=new THREE.Mesh(new THREE.BoxGeometry(58,10,30),new THREE.MeshStandardMaterial({color:0x0a1020,roughness:0.1,metalness:0.6}));glass.position.set(0,13,14);glass.rotation.x=-0.55;grp.add(glass);
+    // Octane: casco bajo con morro inclinado + cabina cónica de cristal + aletas, parrilla, defensas, alerón elevado y ruedas con radios
+    const col=TEAM_COL[team];const grp=new THREE.Group();const body=new THREE.Group();body.scale.z=1.12;grp.add(body);
+    const bodyMat=new THREE.MeshPhysicalMaterial({color:col.main,roughness:0.28,metalness:0.3,clearcoat:1,clearcoatRoughness:0.08,side:THREE.DoubleSide});
+    const dark=new THREE.MeshStandardMaterial({color:0x14171f,roughness:0.5,metalness:0.6});
+    const glass=new THREE.MeshPhysicalMaterial({color:0x04070d,roughness:0.05,metalness:0.8,clearcoat:1});
+    const metal=new THREE.MeshStandardMaterial({color:0x8d95a3,roughness:0.3,metalness:0.95});
+    const red=new THREE.MeshStandardMaterial({color:0xb01818,roughness:0.5,metalness:0.3});
     const accMat=new THREE.MeshStandardMaterial({color:0xffffff,emissive:new THREE.Color(isPlayer?0xffffff:col.acc),emissiveIntensity:1.2});
-    const stripe=new THREE.Mesh(new THREE.BoxGeometry(14,1.5,70),accMat);stripe.position.set(0,19.6,-8);grp.add(stripe);
-    for(const sx of[-1,1]){const strut=new THREE.Mesh(new THREE.BoxGeometry(4,12,4),bodyMat);strut.position.set(sx*26,20,-52);grp.add(strut);
-      const hl=new THREE.Mesh(new THREE.BoxGeometry(14,5,3),new THREE.MeshStandardMaterial({color:0xffffff,emissive:0xffffff,emissiveIntensity:2}));hl.position.set(sx*27,-3,61);grp.add(hl);
-      const tl=new THREE.Mesh(new THREE.BoxGeometry(16,5,3),new THREE.MeshStandardMaterial({color:0xff2020,emissive:0xff2020,emissiveIntensity:2}));tl.position.set(sx*25,2,-61);grp.add(tl);}
-    const wing=new THREE.Mesh(new THREE.BoxGeometry(76,3,16),new THREE.MeshStandardMaterial({color:0x1a1d26,roughness:0.5,metalness:0.6}));wing.position.set(0,26,-52);wing.castShadow=true;grp.add(wing);
-    const nozMat=new THREE.MeshStandardMaterial({color:0x333a48,metalness:0.9,roughness:0.3});for(const sx of[-1,1]){const nz=new THREE.Mesh(new THREE.CylinderGeometry(5,6,10,12),nozMat);nz.rotation.x=Math.PI/2;nz.position.set(sx*14,-5,-62);grp.add(nz);}
-    const led=new THREE.Mesh(new THREE.BoxGeometry(44,1.6,2),new THREE.MeshStandardMaterial({color:0xffffff,emissive:0xcfe6ff,emissiveIntensity:2.5}));led.position.set(0,-2.5,61.5);grp.add(led);
-    const wheelGeo=new THREE.CylinderGeometry(15,15,14,18);wheelGeo.rotateZ(Math.PI/2);
+    const lamp=(c)=>new THREE.MeshStandardMaterial({color:c,emissive:c,emissiveIntensity:2});
+    const bx=(w,h,d,x,y,z,m,rx)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);if(rx)o.rotation.x=rx;o.castShadow=true;body.add(o);return o;};
+    // perfil lateral (z,y) extruido en anchura w y estrechado hacia arriba (top = escala de anchura en y1)
+    const loft=(P,w,y0,y1,top,mat)=>{const s=new THREE.Shape();s.moveTo(P[0][0],P[0][1]);for(let i=1;i<P.length;i++)s.lineTo(P[i][0],P[i][1]);s.closePath();
+      const g=new THREE.ExtrudeGeometry(s,{depth:w,bevelEnabled:true,bevelThickness:2.5,bevelSize:2.5,bevelSegments:2});g.rotateY(-Math.PI/2);g.translate(w/2,0,0);
+      const p=g.attributes.position;for(let i=0;i<p.count;i++){const t=clamp((p.getY(i)-y0)/(y1-y0),0,1);p.setX(i,p.getX(i)*(1-(1-top)*t));}
+      g.computeVertexNormals();const m=new THREE.Mesh(g,mat);m.castShadow=true;m.receiveShadow=true;body.add(m);return m;};
+    loft([[-60,-19],[60,-19],[64,-12],[61,-5],[38,2],[16,8],[-8,10],[-40,10],[-58,8],[-62,0]],76,-12,10,0.82,bodyMat); // casco: morro largo y bajo, capó ancho
+    loft([[27,8],[-2,24],[-17,24],[-19,8]],62,8,24,0.58,glass);                                                         // cabina: parabrisas muy inclinado, cristales tintados
+    loft([[-17,8],[-17,24],[-34,19],[-48,10],[-48,8]],62,8,24,0.58,bodyMat);                                             // zaga elevada
+    bx(38,2.4,16,0,25,-9.5,bodyMat);bx(40,1.5,6,0,9.8,25,dark,0.5);                                                        // techo y base del parabrisas
+    // aletas y pasos de rueda pronunciados con moldura negra
+    const fg=new THREE.CylinderGeometry(21,21,13,18,1,true,0,Math.PI);fg.rotateZ(Math.PI/2);
+    const tg=new THREE.TorusGeometry(21.4,1.4,6,20,Math.PI);tg.rotateY(Math.PI/2);
+    for(let i=0;i<4;i++){const wx=WHEELS[i].x+(WHEELS[i].x<0?-4:4),sx=Math.sign(wx);
+      const f=new THREE.Mesh(fg,bodyMat);f.position.set(wx,-20,WHEELS[i].z);f.castShadow=true;grp.add(f);
+      const t=new THREE.Mesh(tg,dark);t.position.set(wx+sx*6.8,-20,WHEELS[i].z);grp.add(t);}
+    // morro: parrilla, paragolpes metálico con protecciones, faros circulares y antinieblas
+    bx(34,9,1.5,0,-8,67.2,dark);bx(80,4,4,0,-12,69,metal);bx(70,2,8,0,-18,64,dark);
+    const hl=(r,x,y,z)=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,3,14),lamp(0xffffff));m.rotation.x=Math.PI/2;m.position.set(x,y,z);body.add(m);
+      const h=new THREE.Mesh(new THREE.CylinderGeometry(r+1.3,r+1.3,3,14),metal);h.rotation.x=Math.PI/2;h.position.set(x,y,z-1.2);body.add(h);};
+    for(const sx of[-1,1]){bx(3,16,3,sx*20,-8,68,metal);bx(3,12,3,sx*40,-9,66,metal);hl(5.5,sx*31,-6,67.5);hl(3,sx*14,-16,68);
+      bx(1.2,1.6,98,sx*41.6,-14,0,accMat);bx(2,3,60,sx*40.5,-18.5,0,dark); // neón lateral y faldón
+      bx(20,4,1.5,sx*27,-2,-64.8,lamp(0xff2020));                          // pilotos
+      bx(3,21,3,sx*26,20.5,-56,dark);bx(2,9,24,sx*43,32,-62,dark);}        // soportes y placas del alerón
+    for(let i=-2;i<=2;i++){const c=new THREE.Mesh(new THREE.ConeGeometry(1.8,5,6),dark);c.position.set(i*7,11,18);body.add(c);} // púas del capó
+    bx(24,8,11,0,25,-30,dark);bx(34,7,14,0,14,-44,red);                    // toma de aire del techo y bloque motor
+    bx(86,2.2,20,0,32,-62,bodyMat,-0.08);bx(86,1,20,0,30.8,-62,dark,-0.08); // alerón elevado
+    bx(70,5,5,0,-12,-66,metal);bx(60,3,8,0,-18.5,-60,dark);                // paragolpes trasero y difusor
+    const nozMat=new THREE.MeshStandardMaterial({color:0x333a48,metalness:0.9,roughness:0.3});for(const sx of[-1,1]){const nz=new THREE.Mesh(new THREE.CylinderGeometry(5,6,10,12),nozMat);nz.rotation.x=Math.PI/2;nz.position.set(sx*14,-13,-67);body.add(nz);}
+    // ruedas: neumático con dibujo, llanta con radios, labio y buje
+    const tire=new THREE.CylinderGeometry(16,16,15,28);tire.rotateZ(Math.PI/2);
+    const tread=new THREE.CylinderGeometry(16.7,16.7,13.5,14);tread.rotateZ(Math.PI/2);
+    const disc=new THREE.CylinderGeometry(11,11,15.2,20);disc.rotateZ(Math.PI/2);
+    const lip=new THREE.TorusGeometry(11,1.3,6,24);lip.rotateY(Math.PI/2);
+    const spoke=new THREE.BoxGeometry(15.9,1.8,21);const hubG=new THREE.CylinderGeometry(3.5,3.5,16.4,10);hubG.rotateZ(Math.PI/2);
     const wheelMat=new THREE.MeshStandardMaterial({color:0x14161c,roughness:0.85});const rimMat=new THREE.MeshStandardMaterial({color:0xb8c0d0,metalness:0.9,roughness:0.3});
     const wheels=[];
-    for(let i=0;i<4;i++){const pivot=new THREE.Group();pivot.position.set(WHEELS[i].x+(WHEELS[i].x<0?-4:4),-25,WHEELS[i].z);const wm=new THREE.Mesh(wheelGeo,wheelMat);wm.castShadow=true;pivot.add(wm);
-      const rim=new THREE.Mesh(new THREE.CylinderGeometry(9,9,15,10),rimMat);rim.rotation.z=Math.PI/2;wm.add(rim);grp.add(pivot);wheels.push({pivot,mesh:wm});}
+    for(let i=0;i<4;i++){const pivot=new THREE.Group();pivot.position.set(WHEELS[i].x+(WHEELS[i].x<0?-4:4),-25,WHEELS[i].z);
+      const wm=new THREE.Mesh(tire,wheelMat);wm.castShadow=true;pivot.add(wm);wm.add(new THREE.Mesh(tread,wheelMat));wm.add(new THREE.Mesh(disc,dark));
+      for(const sg of[-1,1]){const l=new THREE.Mesh(lip,rimMat);l.position.x=sg*7.4;wm.add(l);}
+      for(let k=0;k<3;k++){const s=new THREE.Mesh(spoke,rimMat);s.rotation.x=k*Math.PI/3;wm.add(s);}
+      wm.add(new THREE.Mesh(hubG,metal));grp.add(pivot);wheels.push({pivot,mesh:wm});}
     grp.userData.wheels=wheels;grp.userData.bodyMat=bodyMat;grp.userData.accMat=accMat;grp.userData.rimMat=rimMat;return grp;
   }
   setupEntities(){
@@ -1290,7 +1360,7 @@ class Game{
     const dt=Math.min(dtReal,0.05);
     for(const car of this.cars){const mesh=car.mesh;mesh.position.copy(car.pos);mesh.quaternion.copy(car.quat);
       const vf=car.vel.dot(car.fwd);car.wheelSpin+=vf*dt/15;const ws=mesh.userData.wheels;
-      for(let i=0;i<4;i++){const len=clamp(car.wheelLen[i],8,40);ws[i].pivot.position.y=-3-len;ws[i].mesh.rotation.x=car.wheelSpin;if(i<2)ws[i].pivot.rotation.y=-car.steerIn*0.42;}
+      for(let i=0;i<4;i++){const len=clamp(car.wheelLen[i],8,40);ws[i].pivot.position.y=-2-len;ws[i].mesh.rotation.x=car.wheelSpin;if(i<2)ws[i].pivot.rotation.y=-car.steerIn*0.42;}
       car.tag.position.set(car.pos.x,car.pos.y+95,car.pos.z);car.tag.visible=!car.demolished&&this.state!=='menu';mesh.visible=this.state==='menu'?car.isPlayer:!car.demolished;}
     const b=this.ball;this.ballMesh.position.copy(b.pos);if(this.state==='menu')this.ballMesh.visible=false;
     if(!b.frozen&&dt>0){const wl=b.angVel.length();if(wl>1e-4){cs.q.setFromAxisAngle(cs.tmp.copy(b.angVel).multiplyScalar(1/wl),wl*dt);this.ballMesh.quaternion.premultiply(cs.q);}}
@@ -1304,7 +1374,7 @@ class Game{
   }
   updateHud(dt){
     const h=this.hud,car=this.player;
-    const sb=String(this.scores[0]),so=String(this.scores[1]);if(h.sb.textContent!==sb)h.sb.textContent=sb;if(h.so.textContent!==so)h.so.textContent=so;
+    const sb=String(this.scores[0]),so=String(this.scores[1]);const pop=(el,v)=>{if(el.textContent===v)return;const up=+v>+el.textContent;el.textContent=v;if(!up)return;const tm=el.parentElement;el.classList.remove('pop');tm.classList.remove('flash');void el.offsetWidth;el.classList.add('pop');tm.classList.add('flash');};pop(h.sb,sb);pop(h.so,so);
     const t=Math.max(0,this.matchTime);const mm=Math.floor(t/60),ss=Math.floor(t%60);const ts=(this.overtime?'+':'')+mm+':'+(ss<10?'0':'')+ss;if(h.timer.textContent!==ts)h.timer.textContent=ts;
     const bo=Math.round(car.boost);if(h.boostNum.textContent!==String(bo))h.boostNum.textContent=bo;h.boostArc.setAttribute('stroke-dashoffset',String(351.9*(1-car.boost/100)));h.boostArc.setAttribute('stroke',car.boost<20?'#ff5a3c':'#ffd21f');
     const sp=Math.round(car.speed);if(h.speedNum.textContent!==String(sp))h.speedNum.textContent=sp;h.speedFill.style.width=(clamp(car.speed/2300,0,1)*100).toFixed(1)+'%';h.speedFill.style.background=car.supersonic?'linear-gradient(90deg,#ffd21f,#ff7a1a)':'linear-gradient(90deg,#3d8bff,#22e0ff)';
